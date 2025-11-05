@@ -2,8 +2,6 @@ const library = "https://striveschool-api.herokuapp.com/books"
 
 const KEY = "book"
 
-let cartBooks = []
-
 const getBooks = function () {
   fetch(library)
     .then((response) => {
@@ -47,11 +45,12 @@ const addToCart = (event) => {
   const button = event.target
   const title = button.dataset.title
   const price = button.dataset.price
-  localStorage.getItem("KEY", "title + price")
+  console.log(` Aggiunto al carrello: ${title} (${price}$)`)
+  localStorage.setItem(KEY, JSON.stringify(title + " " + price))
 }
 
 const removeFromCart = (event) => {
   const removeBtn = event.target
-  localStorage.removeItem("KEY", "title")
+  localStorage.removeItem("KEY")
 }
 getBooks()
