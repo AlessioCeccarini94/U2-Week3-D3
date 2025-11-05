@@ -33,11 +33,8 @@ const getBooks = function () {
       })
       const btns = document.querySelectorAll(".add-to-cart")
       btns.forEach((btn) => {
-        if (btn.textContent === "AGGIUNGI AL CARRELLO") {
-          btn.addEventListener("click", addToCart)
-        } else {
-          btn.addEventListener("click", removeFromCart)
-        }
+        btn.textContent === "AGGIUNGI AL CARRELLO"
+        btn.addEventListener("click", addToCart)
       })
     })
     .catch((error) => {
